@@ -21,7 +21,7 @@ export default function Home() {
   return () => {
     console.log("Home component unmounted");
   };
-}, []);
+}, [dispatch]);
 
   const handleClickForCategory = (e, category) => {
     e.preventDefault()
