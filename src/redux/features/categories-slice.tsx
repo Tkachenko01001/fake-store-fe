@@ -32,13 +32,12 @@ export const categories = createSlice({
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction<void, string, { arg: { operationType: string } }>) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action: PayloadAction<void, string, { arg: { operationType: string } }>) => {
                 state.isLoading = false;
-                state.errors = action.error.message;
+                state.errors = action.error?.name || 'Unknown error';
                 state.operationType = null;
-                
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action:  PayloadAction) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
