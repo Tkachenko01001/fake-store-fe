@@ -6,7 +6,7 @@
 
 To test sending letters on the order page, indicate the manager’s email to receive a letter to it
 
-!(url_to_your_image)
+![order-page](./public/order-page.jpg)
 
 
 But if you want to run locally, use the next.js instruction 👇👇👇
