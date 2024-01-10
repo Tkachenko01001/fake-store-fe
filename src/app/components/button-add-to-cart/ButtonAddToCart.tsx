@@ -16,7 +16,7 @@ const ButtonAddToCart: React.FC<ButtonAddToCartProps> = ({ item }) => {
     const existingItem = items.find((cartItem: CartItemProps) => cartItem.id === item.id);
 
     if (existingItem) {
-      dispatch(updateQuantity({ id: item.id, quantity: existingItem.quantity + 1 }));
+      dispatch(updateQuantity({ id: item.id, quantity: Number(existingItem.quantity) + 1}));
     } else {
       dispatch(addToCart({ ...item, quantity: 1 }));
     }
