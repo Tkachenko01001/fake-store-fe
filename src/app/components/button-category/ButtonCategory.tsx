@@ -13,7 +13,7 @@ const ButtonCategory: React.FC<ButtonCategoryProps> = ({ category }) => {
   const handleClickForCategory = (e: React.MouseEvent<HTMLButtonElement>, category: CategorySingle) => {
     e.preventDefault();
     dispatch(setCategory(category));
-    dispatch(setPage("1"));
+    dispatch(setPage(1));
     dispatch(fetchProductsByCategory({ category, operationType: "fetchProductsByCategory" }));
   };
 
