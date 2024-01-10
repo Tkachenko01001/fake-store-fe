@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "@/app/hooks";
 import { fetchProductsById } from "../../../redux/operations/Operations";
 import { selectProducts } from "@/redux/selectors/selectors";
 import StarRating from "@/app/components/StarRating/StarRating";
@@ -10,7 +11,7 @@ import ButtonAddToCart from "@/app/components/button-add-to-cart/ButtonAddToCart
 
 const Product = ({ params }: { params: { id: number } }) => {
     const products = useSelector(selectProducts);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(fetchProductsById({ id: params.id, operationType: "fetchProductsById" }))
