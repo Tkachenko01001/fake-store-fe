@@ -23,7 +23,7 @@ const Cart = () => {
         </Link>
       </>
     ) : (
-     <h1 className="text-3xl font-bold text-center mt-8">Your Cart is Empty 😢</h1>
+     <h1 className="text-3xl font-bold text-center mt-8"> Your Cart is Empty 😢</h1>
     )}
   </div>
 );
