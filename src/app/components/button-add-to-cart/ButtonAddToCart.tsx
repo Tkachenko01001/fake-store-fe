@@ -13,7 +13,7 @@ const ButtonAddToCart: React.FC<ButtonAddToCartProps> = ({ item }) => {
   const handleClickForBuy = (e: React.MouseEvent<HTMLButtonElement>, item: Product) => {
     e.preventDefault();
 
-    const existingItem = items.find((cartItem: CartItemProps) => cartItem.id === item.id);
+    const existingItem = items.find((cartItem: CartItemProps) => Number(cartItem.id) === Number(item.id));
 
     if (existingItem) {
       dispatch(updateQuantity({ id: item.id, quantity: Number(existingItem.quantity) + 1}));
