@@ -5,9 +5,10 @@ import { selectProducts } from "@/redux/selectors/selectors";
 import ButtonAddToCart from "../button-add-to-cart/ButtonAddToCart";
 import ButtonCategory from "../button-category/ButtonCategory";
 import { useEffect, useState } from "react";
+import { Product } from "@/app/types/types";
 
 const ProductsList = () => {
-    const [sliceProducts, setSliceProducts] = useState([]);
+    const [sliceProducts, setSliceProducts] = useState<Product[]>([]);
     const { products, selectedPage } = useSelector(selectProducts);
 
     useEffect(() => {
