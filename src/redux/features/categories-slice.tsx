@@ -21,17 +21,17 @@ export const categories = createSlice({
     name: "categories",
     initialState,
     reducers: {
-        setCategory: (state: CategoriesState, action: PayloadAction<string>) => {
+        setCategory: (state: CategoriesState, action: any) => {
             state.selectedCategory = action.payload
         },
     },
     extraReducers: (builder: any) => {
         builder
-            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<{ data: string[] }>) => {
+            .addCase(fetchCategories.pending, (state: CategoriesState, action: any) => {
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state: CategoriesState, action: PayloadAction<{ data: string[] }>) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action: any) => {
                 state.isLoading = false;
                 state.errors = action.error.name;
                 state.operationType = null;
