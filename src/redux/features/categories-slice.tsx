@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { fetchCategories } from "../operations/Operations";
+import { CategoriesArray } from "@/app/types/types";
 
 interface CategoriesState {
     categories: string[];
@@ -37,7 +38,7 @@ export const categories = createSlice({
                 state.errors = action.payload;
                 state.operationType = null;
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction<CategoriesArray[]>) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
