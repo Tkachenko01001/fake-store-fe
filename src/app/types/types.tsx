@@ -1,10 +1,15 @@
+export interface Rating {
+  rate: number,
+  count: number,
+}
+
 export interface Product {
   id: string;
   title: string;
   category: string;
   price: number;
   image: string;
-  rating: number;
+  rating: Rating;
 };
 
 export interface CartItemProps {

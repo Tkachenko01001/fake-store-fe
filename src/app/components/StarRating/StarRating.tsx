@@ -1,7 +1,6 @@
 import { StarRatingProps } from "@/app/types/types";
 
 const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
-    console.log(rating);
     
     const fullStars = Math.floor(rating);
     const remainingStars = 5 - fullStars;
