@@ -47,7 +47,7 @@ export const fetchProducts = createAsyncThunk(
 
 export const fetchProductsByCategory = createAsyncThunk(
     "api/productsByCategory",
-    async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI:UnknownAction) => {
+    async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI: UnknownAction) => {
         try {
             const response = await axios.get(
                 `products/category/${category}`
