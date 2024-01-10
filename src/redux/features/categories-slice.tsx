@@ -21,7 +21,7 @@ export const categories = createSlice({
     name: "categories",
     initialState,
     reducers: {
-        setCategory: (state: CategoriesState, action: any) => {
+        setCategory: (state: CategoriesState, action: PayloadAction<string>) => {
             state.selectedCategory = action.payload
         },
     },
@@ -37,7 +37,7 @@ export const categories = createSlice({
                 state.operationType = null;
                 
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction<string>) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: any) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
