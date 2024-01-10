@@ -4,7 +4,7 @@ export interface Product {
   category: string;
   price: number;
   image: string;
-  rating?: number;
+  rating: number;
 };
 
 export interface CartItemProps {
