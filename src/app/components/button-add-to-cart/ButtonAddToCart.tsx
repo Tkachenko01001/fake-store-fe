@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateQuantity } from "@/redux/features/cart-slice";
 import { selectCart } from '@/redux/selectors/selectors';
-import { Product } from '@/app/types/types';
+import { CartItemProps, Product } from '@/app/types/types';
 import { ButtonAddToCartProps } from '@/app/types/types';
 
 const ButtonAddToCart: React.FC<ButtonAddToCartProps> = ({ item }) => {
@@ -13,7 +13,7 @@ const ButtonAddToCart: React.FC<ButtonAddToCartProps> = ({ item }) => {
   const handleClickForBuy = (e: React.MouseEvent<HTMLButtonElement>, item: Product) => {
     e.preventDefault();
 
-    const existingItem = items.find((cartItem: Product) => cartItem.id === item.id);
+    const existingItem = items.find((cartItem: CartItemProps) => cartItem.id === item.id);
 
     if (existingItem) {
       dispatch(updateQuantity({ id: item.id, quantity: existingItem.quantity + 1 }));
