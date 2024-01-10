@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../app/store
 import { fetchCategories } from "../operations/Operations";
 
 interface CategoriesState {
