@@ -28,17 +28,17 @@ export const categories = createSlice({
     },
     extraReducers: (builder: any) => {
         builder
-            .addCase(fetchCategories.pending, (state: CategoriesState, action: UnknownAction) => {
+            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<UnknownAction>) => {
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state: CategoriesState, action: UnknownAction) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction<UnknownAction>) => {
                 state.isLoading = false;
                 state.errors = action.error.name;
                 state.operationType = null;
                 
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: UnknownAction) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action:  PayloadAction<UnknownAction>) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
