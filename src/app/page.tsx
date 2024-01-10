@@ -1,14 +1,14 @@
 'use client'
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from '../app/hooks';
 import { fetchCategories, fetchProducts } from "@/redux/operations/Operations";
 import CategoriesList from "./components/categories-list/CategoriesList";
 import ProductsList from "./components/products-list/ProductsList";
 import Pagination from "./components/pagination/Pagination";
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
  useEffect(() => {
   dispatch(fetchCategories({operationType: "fetchCategories"}));
