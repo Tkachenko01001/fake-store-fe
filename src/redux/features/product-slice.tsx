@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchProducts, fetchProductsByCategory, fetchProductsById } from "../operations/Operations";
-import { Product } from "@/app/types/types";
+import { Product, ProductsArray } from "@/app/types/types";
 
 interface ProductsState {
   products: Product[];
@@ -11,18 +11,18 @@ interface ProductsState {
   operationType: string | null;
 }
 
-const hanlePanding = (state: ProductsState, action: PayloadAction<string>) => {
+const hanlePanding = (state: ProductsState, action: PayloadAction<string, string, { arg: { operationType: string } }>) => {
     state.operationType = action.meta.arg.operationType;
     state.isLoading = true;
 };
 
-const handleRejected = (state: ProductsState, action: PayloadAction<string>) => {
+const handleRejected = (state: ProductsState, action: PayloadAction<string, string, { arg: { operationType: string } }>) => {
     state.isLoading = false;
-    state.errors = action.error.name;
+    state.errors = action.payload;
     state.operationType = null;
 };
 
-const handleFulfilled = (state: ProductsState, action: PayloadAction<string>) => {
+const handleFulfilled = (state: ProductsState, action: PayloadAction<{ data: ProductsArray, operationType: string }>) => {
     state.products = action.payload.data;
     state.isLoading = false;
     state.operationType = null;
@@ -48,7 +48,7 @@ export const products = createSlice({
     extraReducers: (builder: any) => {
         builder
             .addCase(fetchProducts.pending, hanlePanding)
-            .addCase(fetchProducts.rejected, (state: ProductsState, action: PayloadAction<string>) => {
+            .addCase(fetchProducts.rejected, (state: ProductsState, action: PayloadAction<string, string, { arg: { operationType: string } }>) => {
                 state.isLoading = false;
                 state.errors = action.payload;
                 state.operationType = null;
@@ -59,7 +59,7 @@ export const products = createSlice({
             .addCase(fetchProductsByCategory.fulfilled, handleFulfilled)
             .addCase(fetchProductsById.pending, hanlePanding)
             .addCase(fetchProductsById.rejected, handleRejected)
-            .addCase(fetchProductsById.fulfilled, (state: ProductsState, action: PayloadAction<string>) => {
+            .addCase(fetchProductsById.fulfilled, (state: ProductsState, action: PayloadAction<{ data: Product, operationType: string }>) => {
                 state.oneProduct = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;

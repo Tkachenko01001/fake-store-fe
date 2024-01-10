@@ -26,6 +26,8 @@ export type CategorySingle = string;
 
 export type CategoriesArray = CategorySingle[];
 
+export type ProductsArray = Product[];
+
 export interface ButtonCategoryProps {
   category: CategorySingle;
 }
