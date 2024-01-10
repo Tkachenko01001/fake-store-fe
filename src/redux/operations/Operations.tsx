@@ -5,11 +5,11 @@ import { ApiResponse, Product, FetchProductsParams, FetchProductsByCategoryParam
 
 axios.defaults.baseURL = 'https://fakestoreapi.com/';
 
-export const fetchCategories = createAsyncThunk<ApiResponse<string[]>>(
+export const fetchCategories = createAsyncThunk(
     "api/categories",
     async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
-            const response = await axios.get<string[]>(
+            const response = await axios.get(
                 `products/categories`
             );
             return { data: response.data, operationType };
@@ -24,11 +24,11 @@ export const fetchCategories = createAsyncThunk<ApiResponse<string[]>>(
     }
 );
 
-export const fetchProducts = createAsyncThunk<ApiResponse<Product[]>>(
+export const fetchProducts = createAsyncThunk(
     "api/products",
     async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
-            const response = await axios.get<Product[]>(
+            const response = await axios.get(
                 `/products`
             );
             return { data: response.data, operationType };
@@ -43,11 +43,11 @@ export const fetchProducts = createAsyncThunk<ApiResponse<Product[]>>(
     }
 );
 
-export const fetchProductsByCategory = createAsyncThunk<ApiResponse<Product[]>>(
+export const fetchProductsByCategory = createAsyncThunk(
     "api/productsByCategory",
     async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI:any) => {
         try {
-            const response = await axios.get<Product[]>(
+            const response = await axios.get(
                 `products/category/${category}`
             );
             return { data: response.data, operationType };
@@ -62,11 +62,11 @@ export const fetchProductsByCategory = createAsyncThunk<ApiResponse<Product[]>>(
     }
 );
 
-export const fetchProductsById = createAsyncThunk<ApiResponse<Product>>(
+export const fetchProductsById = createAsyncThunk(
     "api/productsById",
     async({ id, operationType }: FetchProductsByIdParams, thunkAPI: any) => {
         try {
-            const response = await axios.get<Product>(
+            const response = await axios.get(
                 `products/${id}`
             );
             return { data: response.data, operationType };

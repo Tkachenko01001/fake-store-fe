@@ -31,11 +31,6 @@ export interface StarRatingProps {
   rating: number;
 }
 
-export interface ApiResponse<T> {
-  data: T;
-  operationType: string;
-}
-
 export interface FetchProductsParams {
   operationType: string;
 }
