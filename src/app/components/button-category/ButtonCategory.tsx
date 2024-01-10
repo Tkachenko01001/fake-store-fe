@@ -1,3 +1,5 @@
+'use client'
+
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/redux/features/categories-slice";
 import { fetchProductsByCategory } from "@/redux/operations/Operations";
