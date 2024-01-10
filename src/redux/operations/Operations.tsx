@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ApiResponse, Product, FetchProductsParams, FetchProductsByCategoryParams, FetchProductsByIdParams } from "@/app/types/types";
+import { FetchProductsParams, FetchProductsByCategoryParams, FetchProductsByIdParams } from "@/app/types/types";
 
 axios.defaults.baseURL = 'https://fakestoreapi.com/';
 
