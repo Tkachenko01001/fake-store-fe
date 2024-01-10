@@ -12,7 +12,7 @@ export interface CartItemProps {
   title: string;
   price: number;
   quantity: number;
-  isCartPage: boolean;
+  isCartPage?: boolean;
 }
 
 export type CategorySingle = string;
