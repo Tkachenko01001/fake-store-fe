@@ -1,4 +1,4 @@
-import Dashboard from "./components/header/Header"
+import Header from "./components/header/Header"
 import "./globals.css"
 import { ReduxProvider } from "@/redux/provider"
 
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="uk">
       <body>
         <ReduxProvider>
-        <Dashboard />
+        <Header />
         <main>{children}</main>
         </ReduxProvider>
       </body>

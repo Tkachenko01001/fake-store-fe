@@ -1,45 +1,81 @@
 import axios from "axios";
+import { Report } from 'notiflix/build/notiflix-report-aio';
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ApiResponse, Product, FetchProductsParams, FetchProductsByCategoryParams, FetchProductsByIdParams } from "@/app/types/types";
 
 axios.defaults.baseURL = 'https://fakestoreapi.com/';
 
-export const fetchCategories = createAsyncThunk(
+export const fetchCategories = createAsyncThunk<ApiResponse<string[]>>(
     "api/categories",
-    async ({ operationType }, thunkAPI) => {
+    async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
-            const response = await axios.get(
+            const response = await axios.get<string[]>(
                 `products/categories`
             );
             return { data: response.data, operationType };
-        } catch (e) {
+        } catch (e: any) {
+            Report.failure(
+                `error`,
+                `${e.message}`,
+                'Okay',
+            );
             return thunkAPI.rejectWithValue(e.message);
         }
     }
 );
 
-export const fetchProducts = createAsyncThunk(
+export const fetchProducts = createAsyncThunk<ApiResponse<Product[]>>(
     "api/products",
-    async ({ operationType }, thunkAPI) => {
+    async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
-            const response = await axios.get(
-                `/products?limit=6`
+            const response = await axios.get<Product[]>(
+                `/products`
             );
             return { data: response.data, operationType };
-        } catch (e) {
+        } catch (e: any) {
+            Report.failure(
+                `error`,
+                `${e.message}`,
+                'Okay',
+            );
             return thunkAPI.rejectWithValue(e.message);
         }
     }
 );
 
-export const fetchProductsByCategory = createAsyncThunk(
+export const fetchProductsByCategory = createAsyncThunk<ApiResponse<Product[]>>(
     "api/productsByCategory",
-    async ({ category, operationType }, thunkAPI) => {
+    async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI:any) => {
         try {
-            const response = await axios.get(
-                `products/category/${category}?limit=6`
+            const response = await axios.get<Product[]>(
+                `products/category/${category}`
             );
             return { data: response.data, operationType };
-        } catch (e) {
+        } catch (e: any) {
+            Report.failure(
+                `error`,
+                `${e.message}`,
+                'Okay',
+            );
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    }
+);
+
+export const fetchProductsById = createAsyncThunk<ApiResponse<Product>>(
+    "api/productsById",
+    async({ id, operationType }: FetchProductsByIdParams, thunkAPI: any) => {
+        try {
+            const response = await axios.get<Product>(
+                `products/${id}`
+            );
+            return { data: response.data, operationType };
+        } catch (e: any) {
+            Report.failure(
+                `error`,
+                `${e.message}`,
+                'Okay',
+            );
             return thunkAPI.rejectWithValue(e.message);
         }
     }

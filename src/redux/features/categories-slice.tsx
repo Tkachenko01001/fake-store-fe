@@ -1,35 +1,43 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCategories } from "../operations/Operations";
 
-const initialState = {
+interface CategoriesState {
+    categories: string[];
+    selectedCategory: string | null;
+    operationType: string | null;
+    isLoading: boolean;
+    errors: string | null;
+}
+
+const initialState: CategoriesState = {
     categories: [],
     selectedCategory: null,
     operationType: null,
     isLoading: false,
     errors: null,
-}
+};
 
 export const categories = createSlice({
     name: "categories",
     initialState,
     reducers: {
-        setCategory: (state, action) => {
+        setCategory: (state: CategoriesState, action: PayloadAction<string>) => {
             state.selectedCategory = action.payload
         },
     },
-    extraReducers: (builder) => {
+    extraReducers: (builder: any) => {
         builder
-            .addCase(fetchCategories.pending, (state, action) => {
+            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<{ data: string[] }>) => {
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state, action) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action: PayloadAction<{ data: string[] }>) => {
                 state.isLoading = false;
                 state.errors = action.error.name;
                 state.operationType = null;
                 
             })
-            .addCase(fetchCategories.fulfilled, (state, action: PayloadAction<string>) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction<string>) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
