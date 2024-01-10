@@ -8,7 +8,7 @@ axios.defaults.baseURL = 'https://fakestoreapi.com/';
 
 export const fetchCategories = createAsyncThunk(
     "api/categories",
-    async ({ operationType }: FetchProductsParams, thunkAPI: ThunkAPI) => {
+    async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
             const response = await axios.get(
                 `products/categories`
@@ -27,7 +27,7 @@ export const fetchCategories = createAsyncThunk(
 
 export const fetchProducts = createAsyncThunk(
     "api/products",
-    async ({ operationType }: FetchProductsParams, thunkAPI: ThunkAPI) => {
+    async ({ operationType }: FetchProductsParams, thunkAPI: any) => {
         try {
             const response = await axios.get(
                 `/products`
@@ -46,7 +46,7 @@ export const fetchProducts = createAsyncThunk(
 
 export const fetchProductsByCategory = createAsyncThunk(
     "api/productsByCategory",
-    async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI: ThunkAPI) => {
+    async ({ category, operationType }: FetchProductsByCategoryParams, thunkAPI: any) => {
         try {
             const response = await axios.get(
                 `products/category/${category}`
@@ -65,7 +65,7 @@ export const fetchProductsByCategory = createAsyncThunk(
 
 export const fetchProductsById = createAsyncThunk(
     "api/productsById",
-    async({ id, operationType }: FetchProductsByIdParams, thunkAPI: ThunkAPI) => {
+    async({ id, operationType }: FetchProductsByIdParams, thunkAPI: any) => {
         try {
             const response = await axios.get(
                 `products/${id}`
