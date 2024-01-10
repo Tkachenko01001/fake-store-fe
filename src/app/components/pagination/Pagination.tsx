@@ -10,7 +10,7 @@ const Pagination = () => {
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
   const handleClickPage = (page: number) => {
-    dispatch(setPage(page));
+    dispatch(setPage(page.toString()));
   };
 
   return (
