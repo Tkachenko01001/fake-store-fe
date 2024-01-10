@@ -1,3 +1,16 @@
+
+## The project is available at the link:
+[fake-store-fe.vercel.app](https://fake-store-fe.vercel.app)
+
+## ❗❗There is no need to run locally❗❗
+
+To test sending letters on the order page, indicate the manager’s email to receive a letter to it
+
+!(url_to_your_image)
+
+
+But if you want to run locally, use the next.js instruction 👇👇👇
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
