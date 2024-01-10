@@ -38,7 +38,7 @@ export const categories = createSlice({
                 state.errors = action.payload;
                 state.operationType = null;
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction<CategoriesArray[]>) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action: PayloadAction<{ data: CategoriesArray, operationType: string }>) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
