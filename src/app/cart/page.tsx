@@ -3,7 +3,7 @@ import Link from "next/link";
 import { selectCart } from "@/redux/selectors/selectors";
 import { useSelector } from "react-redux";
 import CartItem from "../components/cart-item/cartItem";
-import { Product } from "../types/types";
+import { CartItemProps } from "../types/types";
 
 const Cart = () => {
   const {items} = useSelector(selectCart);
@@ -14,7 +14,7 @@ const Cart = () => {
       <>
         <h2 className="text-3xl font-bold mb-5">Shopping Cart</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-          {items.map((item: Product) => (
+          {items.map((item: CartItemProps) => (
             <CartItem key={item.id} {...item} isCartPage={true} />
           ))}
         </div>
