@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { UnknownAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
+import type { RootState } from '../../app/store
 import { fetchCategories } from "../operations/Operations";
 
 interface CategoriesState {
@@ -28,17 +29,17 @@ export const categories = createSlice({
     },
     extraReducers: (builder: any) => {
         builder
-            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<UnknownAction>) => {
+            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction) => {
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction<UnknownAction>) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction) => {
                 state.isLoading = false;
                 state.errors = action.error.name;
                 state.operationType = null;
                 
             })
-            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action:  PayloadAction<UnknownAction>) => {
+            .addCase(fetchCategories.fulfilled, (state: CategoriesState, action:  PayloadAction) => {
                 state.categories = action.payload.data;
                 state.isLoading = false;
                 state.operationType = null;
