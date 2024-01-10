@@ -28,7 +28,7 @@ export const categories = createSlice({
     },
     extraReducers: (builder: any) => {
         builder
-            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<string>) => {
+            .addCase(fetchCategories.pending, (state: CategoriesState, action: PayloadAction<string, string, { arg: { operationType: string } }>) => {
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
