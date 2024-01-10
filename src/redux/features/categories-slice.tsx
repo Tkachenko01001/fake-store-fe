@@ -32,7 +32,7 @@ export const categories = createSlice({
                 state.isLoading = true;
                 state.operationType = action.meta.arg.operationType;
             })
-            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction) => {
+            .addCase(fetchCategories.rejected, (state: CategoriesState, action:  PayloadAction<void, string, { arg: { operationType: string } }>) => {
                 state.isLoading = false;
                 state.errors = action.error.name;
                 state.operationType = null;
