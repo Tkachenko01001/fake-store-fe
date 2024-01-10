@@ -20,7 +20,7 @@ const ProductsList = () => {
     return (
         <ul className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
             {sliceProducts &&
-                sliceProducts.map(({ id, image, title, category, price, rating }) => (
+                sliceProducts.map(({ id, image, title, category, price, rating, description }) => (
                     <li key={id} className="border rounded-md overflow-hidden bg-white p-4">
                         <Link href={`/product/${id}`} className="flex flex-col h-full ">
                             <div className="relative h-40">
@@ -32,7 +32,7 @@ const ProductsList = () => {
                                     <ButtonCategory category={category} />
                                 </div>
                                 <div className="flex justify-between items-center mt-5">
-                                    <ButtonAddToCart item={{ id, image, title, category, price, rating}} />
+                                    <ButtonAddToCart item={{ id, image, title, category, price, rating, description}} />
                                     <p className="text-gray-700"><span className="font-bold">price:</span> {price}</p>
                                 </div>
                             </div>
