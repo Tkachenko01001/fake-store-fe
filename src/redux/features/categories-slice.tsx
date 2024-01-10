@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { UnknownAction } from '@reduxjs/toolkit'
 import { fetchCategories } from "../operations/Operations";
 
@@ -22,7 +22,7 @@ export const categories = createSlice({
     name: "categories",
     initialState,
     reducers: {
-        setCategory: (state: CategoriesState, action: UnknownAction) => {
+        setCategory: (state: CategoriesState, action: PayloadAction<string>) => {
             state.selectedCategory = action.payload
         },
     },
