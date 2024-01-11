@@ -16,7 +16,7 @@ const CategoriesList = () => {
     const handleClickForCategory = (e: React.MouseEvent<HTMLElement>, category: CategorySingle) => {
         e.preventDefault();
         if (category === selectedCategory) {
-            dispatch(setCategory(null));
+            dispatch(setCategory(''));
             return;
         }
         dispatch(setCategory(category));
