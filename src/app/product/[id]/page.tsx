@@ -20,11 +20,11 @@ const Product = ({ params }: { params: { id: number } }) => {
     return (
         <div className="container mx-auto my-10">
             {products.oneProduct && (
-                <div className="flex">
-                    <div className="w-1/2">
+                <div className="flex max-md:justify-items-center max-md:flex-col items-center gap-5">
+                    <div className="md:w-1/2">
                         <Image width={500} height={500} src={products.oneProduct.image} alt={products.oneProduct.title} className="rounded-lg object-contain" />
                     </div>
-                    <div className="w-1/2 px-8">
+                    <div className="md:w-1/2 px-8">
                         <h2 className="text-3xl font-bold mb-4">{products.oneProduct.title}</h2>
                         <div className="flex items-center mt-4 mb-2">
                             <span className="text-gray-500 mr-2">Rating:</span>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import Search from "../search/Search";
-import CategoriesList from "../categories-list/CategoriesList"; // Предположим, что у вас есть компонент CategoriesList
+import CategoriesList from "../categories-list/CategoriesList";
 import { selectCart } from "@/redux/selectors/selectors";
 import { CartItemProps } from "@/app/types/types";
 
@@ -42,7 +42,7 @@ const Header = () => {
                         </svg>
                 </div>
                 {isMenuOpen && (
-                    <div className="p-10 lg:hidden fixed top-0 left-0 w-full h-full bg-gray-800 text-white p-4 z-50">
+                    <div className="p-10 lg:hidden fixed top-0 left-0 w-full h-full bg-gray-800 text-white p-4 z-50" onClick={toggleMenu}>
                         <div className="flex justify-end"><svg className="h-6 w-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onClick={toggleMenu}>
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg></div>

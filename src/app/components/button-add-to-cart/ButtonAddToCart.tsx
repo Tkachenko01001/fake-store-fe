@@ -26,7 +26,7 @@ const ButtonAddToCart: React.FC<ButtonAddToCartProps> = ({ item }) => {
 
   return (
     <button
-      className="bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+      className="bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 max-lg:py-1 px-1 lg:text-sm"
       onClick={(e) => handleClickForBuy(e, item)}
     >
       Add to Cart
