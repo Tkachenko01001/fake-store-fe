@@ -14,8 +14,8 @@ export default function Home() {
   const { selectedCategory, categories } = useSelector(selectCategories)
   
   useEffect(() => {
-    categories.length === 0 && dispatch(fetchCategories({ operationType: "fetchCategories" }));
-    dispatch(fetchProducts({ operationType: "fetchProducts" }));
+    (categories.length === 0 || !selectedCategory) && dispatch(fetchCategories({ operationType: "fetchCategories" }));
+    selectedCategory === 'all' && dispatch(fetchProducts({ operationType: "fetchProducts" }));
   }, [categories.length, dispatch, selectedCategory]);
 
   return (

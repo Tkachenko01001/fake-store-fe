@@ -5,7 +5,7 @@ import { CategoriesArray } from "@/app/types/types";
 
 interface CategoriesState {
     categories: string[];
-    selectedCategory: string | null;
+    selectedCategory: string;
     operationType: string | null;
     isLoading: boolean;
     errors: string | null;
@@ -13,7 +13,7 @@ interface CategoriesState {
 
 const initialState: CategoriesState = {
     categories: [],
-    selectedCategory: null,
+    selectedCategory: 'all',
     operationType: null,
     isLoading: false,
     errors: null,
