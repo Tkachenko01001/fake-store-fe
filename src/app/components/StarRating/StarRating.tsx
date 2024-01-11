@@ -8,7 +8,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
     return (
         <div className="flex items-center">
             {[...Array(fullStars)].map((_, index) => (
-                <div key={index} className="flex items-center mr-1 text-yellow-400">
+                <div key={index}  className="flex items-center mr-1 text-yellow-400">
                     <svg
                         fill="currentColor"
                         strokeLinecap="round"
