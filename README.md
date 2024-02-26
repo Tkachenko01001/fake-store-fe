@@ -1,6 +1,6 @@
 
 ## The project is available at the link:
-[fake-store-fe.vercel.app](https://fake-store-fe.vercel.app)
+[fake-store-fe.vercel.app]([https://fake-store-fe.vercel.app](https://fake-store-fe-fab3.vercel.app))
 
 ## ❗❗There is no need to run locally❗❗
 
